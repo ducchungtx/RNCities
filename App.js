@@ -1,0 +1,19 @@
+import React, { Component } from 'react';
+import Routes from './src/routes';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+
+import rootReducer from './src/reducers';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Routes />
+      </Provider>      
+    );
+  }
+}
